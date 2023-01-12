@@ -1,0 +1,40 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.5'
+	id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'io.jsonwebtoken:jjwt:0.9.1'
+	runtimeOnly 'org.postgresql:postgresql'
+	implementation 'org.springframework.security:spring-security-jwt:1.1.1.RELEASE'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.hibernate:hibernate-envers:5.6.14.Final'
+	implementation 'org.springdoc:springdoc-openapi-ui:1.6.9'
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
