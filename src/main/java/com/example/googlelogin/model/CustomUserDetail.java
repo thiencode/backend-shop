@@ -21,7 +21,7 @@ public class CustomUserDetail implements UserDetails {
         return Collections.singleton(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
-    public String getEmail(){
+    public String getEmail() {
         return user.getEmail();
     }
 
