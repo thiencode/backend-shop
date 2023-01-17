@@ -6,6 +6,10 @@ spring:
     url: jdbc:postgresql://localhost:5432/postgres
     username: root
     password: password
+    hikari:
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
   jpa:
     show-sql: true
     properties:
