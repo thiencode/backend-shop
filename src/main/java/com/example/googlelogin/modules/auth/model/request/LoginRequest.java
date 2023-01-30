@@ -1,4 +1,4 @@
-package com.example.googlelogin.model.auth.request;
+package com.example.googlelogin.modules.auth.model.request;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -1,6 +1,6 @@
 package com.example.googlelogin.config.jwt;
 
-import com.example.googlelogin.service.CustomUserDetailsService;
+import com.example.googlelogin.modules.auth.service.CustomUserDetailsService;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

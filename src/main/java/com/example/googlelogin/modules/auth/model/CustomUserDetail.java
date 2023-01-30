@@ -1,6 +1,6 @@
-package com.example.googlelogin.model.auth;
+package com.example.googlelogin.modules.auth.model;
 
-import com.example.googlelogin.entity.UserEntity;
+import com.example.googlelogin.modules.auth.entity.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;

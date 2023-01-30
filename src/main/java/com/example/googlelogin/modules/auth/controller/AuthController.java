@@ -1,13 +1,14 @@
-package com.example.googlelogin.controller;
+package com.example.googlelogin.modules.auth.controller;
 
-import com.example.googlelogin.entity.UserEntity;
-import com.example.googlelogin.model.auth.RandomStuff;
-import com.example.googlelogin.model.auth.request.LoginRequest;
-import com.example.googlelogin.model.auth.request.RegisterRequest;
-import com.example.googlelogin.model.auth.response.LoginResponse;
+import com.example.googlelogin.controller.BaseController;
 import com.example.googlelogin.model.factory.IResponseFactory;
 import com.example.googlelogin.model.factory.impl.BaseResponse;
-import com.example.googlelogin.service.UserService;
+import com.example.googlelogin.modules.auth.entity.UserEntity;
+import com.example.googlelogin.modules.auth.model.RandomStuff;
+import com.example.googlelogin.modules.auth.model.request.LoginRequest;
+import com.example.googlelogin.modules.auth.model.request.RegisterRequest;
+import com.example.googlelogin.modules.auth.model.response.LoginResponse;
+import com.example.googlelogin.modules.auth.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

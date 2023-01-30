@@ -1,5 +1,6 @@
-package com.example.googlelogin.entity;
+package com.example.googlelogin.modules.auth.entity;
 
+import com.example.googlelogin.entity.Audit;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.GenericGenerator;

@@ -1,12 +1,12 @@
-package com.example.googlelogin.service;
+package com.example.googlelogin.modules.auth.service;
 
 import com.example.googlelogin.config.jwt.JwtTokenProvider;
-import com.example.googlelogin.entity.UserEntity;
-import com.example.googlelogin.model.auth.CustomUserDetail;
-import com.example.googlelogin.model.auth.request.LoginRequest;
-import com.example.googlelogin.model.auth.request.RegisterRequest;
-import com.example.googlelogin.model.auth.response.LoginResponse;
-import com.example.googlelogin.repository.UserRepository;
+import com.example.googlelogin.modules.auth.entity.UserEntity;
+import com.example.googlelogin.modules.auth.model.CustomUserDetail;
+import com.example.googlelogin.modules.auth.model.request.LoginRequest;
+import com.example.googlelogin.modules.auth.model.request.RegisterRequest;
+import com.example.googlelogin.modules.auth.model.response.LoginResponse;
+import com.example.googlelogin.modules.auth.repository.UserRepository;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -39,7 +39,6 @@ public class UserService {
     }
 
     public LoginResponse login(LoginRequest request) {
-        UserEntity user = userRepository.findByUsername(request.getUsername());
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getUsername(),

@@ -1,7 +1,7 @@
 package com.example.googlelogin.config;
 
 import com.example.googlelogin.constant.CommonConstant;
-import com.example.googlelogin.model.auth.CustomUserDetail;
+import com.example.googlelogin.modules.auth.model.CustomUserDetail;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
