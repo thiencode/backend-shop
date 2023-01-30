@@ -6,7 +6,8 @@ import com.example.googlelogin.model.filter.IFilter;
 import java.util.List;
 
 /**
- *  IDataFactory
+ * IDataFactory
+ *
  * @param <I> id
  * @param <T> object info
  * @param <U> object detail
