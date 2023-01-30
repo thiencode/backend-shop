@@ -1,7 +1,7 @@
 package com.example.googlelogin.service;
 
 import com.example.googlelogin.entity.UserEntity;
-import com.example.googlelogin.model.CustomUserDetail;
+import com.example.googlelogin.model.auth.CustomUserDetail;
 import com.example.googlelogin.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -2,7 +2,7 @@ package com.example.googlelogin.service;
 
 import com.example.googlelogin.config.jwt.JwtTokenProvider;
 import com.example.googlelogin.entity.UserEntity;
-import com.example.googlelogin.model.CustomUserDetail;
+import com.example.googlelogin.model.auth.CustomUserDetail;
 import com.example.googlelogin.model.auth.request.LoginRequest;
 import com.example.googlelogin.model.auth.request.RegisterRequest;
 import com.example.googlelogin.model.auth.response.LoginResponse;

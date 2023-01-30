@@ -1,4 +1,4 @@
-package com.example.googlelogin.model.factory.response;
+package com.example.googlelogin.model.factory.impl;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;

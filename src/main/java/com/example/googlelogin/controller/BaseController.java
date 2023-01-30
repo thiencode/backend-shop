@@ -1,6 +1,6 @@
 package com.example.googlelogin.controller;
 
-import com.example.googlelogin.model.factory.response.IResponseFactory;
+import com.example.googlelogin.model.factory.IResponseFactory;
 
 public abstract class BaseController {
     protected final IResponseFactory iResponseFactory;

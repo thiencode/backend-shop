@@ -1,7 +1,8 @@
-package com.example.googlelogin.model.factory.response;
+package com.example.googlelogin.model.factory.impl;
 
 import com.example.googlelogin.constant.CommonConstant;
 import com.example.googlelogin.exception.IErrorCode;
+import com.example.googlelogin.model.factory.IResponseFactory;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
