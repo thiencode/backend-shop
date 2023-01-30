@@ -1,8 +1,8 @@
-package com.example.googlelogin.service;
+package com.example.googlelogin.modules.auth.service;
 
-import com.example.googlelogin.entity.UserEntity;
-import com.example.googlelogin.model.auth.CustomUserDetail;
-import com.example.googlelogin.repository.UserRepository;
+import com.example.googlelogin.modules.auth.entity.UserEntity;
+import com.example.googlelogin.modules.auth.model.CustomUserDetail;
+import com.example.googlelogin.modules.auth.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

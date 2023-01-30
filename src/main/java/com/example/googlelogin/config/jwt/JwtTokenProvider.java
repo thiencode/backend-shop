@@ -1,6 +1,6 @@
 package com.example.googlelogin.config.jwt;
 
-import com.example.googlelogin.model.auth.CustomUserDetail;
+import com.example.googlelogin.modules.auth.model.CustomUserDetail;
 import io.jsonwebtoken.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

@@ -1,7 +1,7 @@
 package com.example.googlelogin.config;
 
 import com.example.googlelogin.config.jwt.JwtAuthenticationFilter;
-import com.example.googlelogin.service.CustomUserDetailsService;
+import com.example.googlelogin.modules.auth.service.CustomUserDetailsService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

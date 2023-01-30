@@ -1,4 +1,4 @@
-package com.example.googlelogin.model.auth.response;
+package com.example.googlelogin.modules.auth.model.response;
 
 import lombok.Data;
 

@@ -1,6 +1,6 @@
-package com.example.googlelogin.repository;
+package com.example.googlelogin.modules.auth.repository;
 
-import com.example.googlelogin.entity.UserEntity;
+import com.example.googlelogin.modules.auth.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
