@@ -1,6 +1,8 @@
-package com.example.googlelogin.model.factory.response;
+package com.example.googlelogin.model.factory;
 
 import com.example.googlelogin.exception.IErrorCode;
+import com.example.googlelogin.model.factory.impl.BaseResponse;
+import com.example.googlelogin.model.factory.impl.ErrorResponse;
 import org.springframework.http.ResponseEntity;
 
 import java.util.Map;
