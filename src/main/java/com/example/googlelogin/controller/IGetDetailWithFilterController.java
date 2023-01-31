@@ -11,11 +11,11 @@ import javax.validation.Valid;
 
 /**
  * IGetDetailWithFilterController <br/>
- * Get Detail model with filter
  *
  * @param <I> id
  * @param <U> detail
  * @param <F> extend IFilter
+ * @see IGetDetailWithFilterController
  */
 public interface IGetDetailWithFilterController<I, U extends IBaseData<I>, F extends IFilter> {
     @GetMapping("/detail")

@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 /**
- * IGetDetailByIdController <br/>
- * Get detail by id
+ * IGetDetailByIdController
  *
  * @param <I> id
  * @param <U> detail
+ * @see IGetDetailByIdController
  */
 public interface IGetDetailByIdController<I, U extends IBaseData<I>> {
     @GetMapping("/{id}/detail")
