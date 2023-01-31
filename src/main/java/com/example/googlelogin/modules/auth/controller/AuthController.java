@@ -1,8 +1,7 @@
 package com.example.googlelogin.modules.auth.controller;
 
-import com.example.googlelogin.controller.BaseController;
-import com.example.googlelogin.model.factory.IResponseFactory;
-import com.example.googlelogin.model.factory.impl.BaseResponse;
+import com.example.googlelogin.model.factory.response.IResponseFactory;
+import com.example.googlelogin.model.factory.response.BaseResponse;
 import com.example.googlelogin.modules.auth.entity.UserEntity;
 import com.example.googlelogin.modules.auth.model.RandomStuff;
 import com.example.googlelogin.modules.auth.model.request.LoginRequest;
@@ -15,13 +14,15 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/auth")
 @CrossOrigin
-public class AuthController extends BaseController {
+public class AuthController {
 
-    protected final UserService userService;
+    private final UserService userService;
 
-    public AuthController(UserService userService, IResponseFactory iResponseFactory) {
-        super(iResponseFactory);
+    private final IResponseFactory iResponseFactory;
+
+    public AuthController(UserService userService, IResponseFactory iResponseFactory1) {
         this.userService = userService;
+        this.iResponseFactory = iResponseFactory1;
     }
 
     @PostMapping("/login")
