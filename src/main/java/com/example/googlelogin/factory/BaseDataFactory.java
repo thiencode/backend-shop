@@ -32,7 +32,7 @@ public abstract class BaseDataFactory<I, T extends IBaseData<I>, U extends T> im
         return detail;
     }
 
-    protected abstract U didUpdate(I id, U detail);
+    protected abstract U didUpdate(I id, U detail) throws Exception;
 
     @Override
     public <F extends IFilter> boolean deleteModel(I id, F filter) {
@@ -45,7 +45,7 @@ public abstract class BaseDataFactory<I, T extends IBaseData<I>, U extends T> im
         return filter;
     }
 
-    protected abstract <F extends IFilter> void didDelete(I id, F filter);
+    protected abstract <F extends IFilter> void didDelete(I id, F filter) throws Exception;
 
     @Override
     public <F extends IFilter> List<T> getInfoList(F filter) {
@@ -81,7 +81,7 @@ public abstract class BaseDataFactory<I, T extends IBaseData<I>, U extends T> im
         return filter;
     }
 
-    protected abstract <F extends IFilter> U didGetDetailModel(I id, F filter);
+    protected abstract <F extends IFilter> U didGetDetailModel(I id, F filter) throws Exception;
 
     @Override
     public <F extends IFilter> BasePagingResponse<T> getInfoPage(F filter, int number, int size) {
