@@ -29,7 +29,7 @@ public interface IDataFactory<I, T extends IBaseData<I>, U extends T> {
 
     <F extends IFilter> U getDetailModel(I id, F filter);
 
-    <F extends IFilter> boolean existByFilter(I id, F filter);
+    <F extends IFilter> boolean existByFilter(I id, F filter) throws Exception;
 
-    boolean existByDetail(U detail);
+    boolean existByDetail(U detail) throws Exception;
 }
