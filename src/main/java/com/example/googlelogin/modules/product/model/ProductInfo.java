@@ -15,11 +15,9 @@ public class ProductInfo extends BaseData<UUID> {
 
     private String name;
 
-    private String ProductCode;
+    private String productCode;
 
     private String image;
-
-    private int quantity;
 
     private double price;
 

@@ -17,9 +17,9 @@ public interface IDataFactory<I, T extends IBaseData<I>, U extends T> {
 
     U createModel(U detail);
 
-    U updateModel(I id, U detail);
+    U updateModel(I id, U detail) throws Exception;
 
-    <F extends IFilter> boolean deleteModel(I id, F filter);
+    <F extends IFilter> boolean deleteModel(I id, F filter) throws Exception;
 
     <F extends IFilter> List<T> getInfoList(F filter);
 
@@ -27,7 +27,7 @@ public interface IDataFactory<I, T extends IBaseData<I>, U extends T> {
 
     List<T> getInfoList();
 
-    <F extends IFilter> U getDetailModel(I id, F filter);
+    <F extends IFilter> U getDetailModel(I id, F filter) throws Exception;
 
     <F extends IFilter> boolean existByFilter(I id, F filter) throws Exception;
 

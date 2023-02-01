@@ -18,5 +18,5 @@ import javax.validation.Valid;
  */
 public interface IUpdateModelController<I, U extends IBaseData<I>> {
     @PutMapping("/update")
-    ResponseEntity<BaseResponse<U>> updateModel(@RequestBody @Valid FactoryUpdateRequest<I, U> request);
+    ResponseEntity<BaseResponse<U>> updateModel(@RequestBody @Valid FactoryUpdateRequest<I, U> request) throws Exception;
 }

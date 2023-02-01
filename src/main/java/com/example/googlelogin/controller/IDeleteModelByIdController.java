@@ -13,5 +13,5 @@ import org.springframework.web.bind.annotation.PathVariable;
  */
 public interface IDeleteModelByIdController<I> {
     @DeleteMapping("/{id}/delete")
-    ResponseEntity<BaseResponse<FactoryDeleteResponse>> deleteModelById(@PathVariable I id);
+    ResponseEntity<BaseResponse<FactoryDeleteResponse>> deleteModelById(@PathVariable I id) throws Exception;
 }

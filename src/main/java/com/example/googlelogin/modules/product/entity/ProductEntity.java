@@ -1,9 +1,7 @@
 package com.example.googlelogin.modules.product.entity;
 
 import com.example.googlelogin.entity.Audit;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -11,6 +9,8 @@ import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "product")
 @NoArgsConstructor
 @AllArgsConstructor
@@ -37,7 +37,7 @@ public class ProductEntity extends Audit<UUID> {
     @Column(
             name = "product_code"
     )
-    private String ProductCode;
+    private String productCode;
 
     private String description;
 
@@ -47,7 +47,9 @@ public class ProductEntity extends Audit<UUID> {
 
     private double price;
 
-    private int quantity;
+    private String quantity;
+
+    private String unit;
 
     private String type;
 
