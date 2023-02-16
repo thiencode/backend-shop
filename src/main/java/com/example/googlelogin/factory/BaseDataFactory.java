@@ -23,7 +23,7 @@ public abstract class BaseDataFactory<I, T extends IBaseData<I>, U extends T> im
     protected abstract U didCreate(U detail);
 
     @Override
-    public U updateModel(I id, U detail) {
+    public U updateModel(I id, U detail) throws Exception {
         detail = didUpdate(id, preUpdate(id, detail));
         return detail;
     }
@@ -35,7 +35,7 @@ public abstract class BaseDataFactory<I, T extends IBaseData<I>, U extends T> im
     protected abstract U didUpdate(I id, U detail) throws Exception;
 
     @Override
-    public <F extends IFilter> boolean deleteModel(I id, F filter) {
+    public <F extends IFilter> boolean deleteModel(I id, F filter) throws Exception {
         F preFilter = preDelete(id, filter);
         didDelete(id, preFilter);
         return true;
@@ -72,7 +72,7 @@ public abstract class BaseDataFactory<I, T extends IBaseData<I>, U extends T> im
     protected abstract List<T> didGetInfoList();
 
     @Override
-    public <F extends IFilter> U getDetailModel(I id, F filter) {
+    public <F extends IFilter> U getDetailModel(I id, F filter) throws Exception {
         F preFilter = preGetDetailModel(id, filter);
         return didGetDetailModel(id, preFilter);
     }

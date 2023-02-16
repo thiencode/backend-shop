@@ -34,31 +34,33 @@ public abstract class BaseController<I, T extends IBaseData<I>, U extends T> {
         return iResponseFactory.success(response);
     }
 
-    protected ResponseEntity<BaseResponse<U>> factoryUpdateModel(FactoryUpdateRequest<I, U> request) {
+    protected ResponseEntity<BaseResponse<U>> factoryUpdateModel(FactoryUpdateRequest<I, U> request) throws Exception {
         return factoryUpdateModel(request.getId(), request.getData());
     }
 
-    protected ResponseEntity<BaseResponse<U>> factoryUpdateModel(U request) {
+    protected ResponseEntity<BaseResponse<U>> factoryUpdateModel(U request) throws Exception {
         return factoryUpdateModel(request.getId(), request);
     }
 
-    protected ResponseEntity<BaseResponse<U>> factoryUpdateModel(I id, U request) {
+    protected ResponseEntity<BaseResponse<U>> factoryUpdateModel(I id, U request) throws Exception {
         return iResponseFactory.success(iDataFactory.updateModel(id, request));
     }
 
-    protected <F extends IFilter> ResponseEntity<BaseResponse<FactoryDeleteResponse>> factoryDeleteWithFilter(I id, F filter) {
+    protected <F extends IFilter> ResponseEntity<BaseResponse<FactoryDeleteResponse>> factoryDeleteWithFilter(I id,
+                                                                                                              F filter) throws Exception {
         return iResponseFactory.success(
                 FactoryDeleteResponse.builder()
-                        .success(iDataFactory.deleteModel(id, filter))
-                        .build()
-        );
+                                     .success(iDataFactory.deleteModel(id, filter))
+                                     .build()
+                                       );
     }
 
-    protected ResponseEntity<BaseResponse<U>> factoryGetDetailById(I id) {
+    protected ResponseEntity<BaseResponse<U>> factoryGetDetailById(I id) throws Exception {
         return factoryGetDetailWithFilter(id, null);
     }
 
-    protected <F extends IFilter> ResponseEntity<BaseResponse<U>> factoryGetDetailWithFilter(I id, F filter) {
+    protected <F extends IFilter> ResponseEntity<BaseResponse<U>> factoryGetDetailWithFilter(I id,
+                                                                                             F filter) throws Exception {
         return iResponseFactory.success(iDataFactory.getDetailModel(id, filter));
     }
 

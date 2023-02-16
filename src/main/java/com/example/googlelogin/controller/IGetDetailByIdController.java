@@ -15,5 +15,5 @@ import org.springframework.web.bind.annotation.PathVariable;
  */
 public interface IGetDetailByIdController<I, U extends IBaseData<I>> {
     @GetMapping("/{id}/detail")
-    ResponseEntity<BaseResponse<U>> getDetailById(@PathVariable I id);
+    ResponseEntity<BaseResponse<U>> getDetailById(@PathVariable I id) throws Exception;
 }

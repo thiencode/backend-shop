@@ -19,35 +19,37 @@ public class JwtTokenProvider {
         Date expiryDate = new Date(now.getTime() + JWT_EXPIRATION);
         return Jwts.builder()
 //                .setSubject(String.valueOf(user.getUser().getUserId()))
-                .setSubject(user.getUser().getUsername())
-                .setId(String.valueOf(user.getUser().getUserId()))
-                .setIssuedAt(now)
-                .setExpiration(expiryDate)
-                .signWith(SignatureAlgorithm.HS512, JWT_SECRET)
-                .compact();
+                   .setSubject(user.getUser()
+                                   .getUsername())
+                   .setId(String.valueOf(user.getUser()
+                                             .getUserId()))
+                   .setIssuedAt(now)
+                   .setExpiration(expiryDate)
+                   .signWith(SignatureAlgorithm.HS512, JWT_SECRET)
+                   .compact();
     }
 
     public String getUsernameFromJwt(String token) {
         Claims claims = Jwts.parser()
-                .setSigningKey(JWT_SECRET)
-                .parseClaimsJws(token)
-                .getBody();
+                            .setSigningKey(JWT_SECRET)
+                            .parseClaimsJws(token)
+                            .getBody();
         return claims.getSubject();
     }
 
     public UUID getUserIdFromJwt(String token) {
         Claims claims = Jwts.parser()
-                .setSigningKey(JWT_SECRET)
-                .parseClaimsJws(token)
-                .getBody();
+                            .setSigningKey(JWT_SECRET)
+                            .parseClaimsJws(token)
+                            .getBody();
         return UUID.fromString(claims.getId());
     }
 
     public boolean validateToken(String authToken) {
         try {
             Jwts.parser()
-                    .setSigningKey(JWT_SECRET)
-                    .parseClaimsJws(authToken);
+                .setSigningKey(JWT_SECRET)
+                .parseClaimsJws(authToken);
             return true;
         } catch (MalformedJwtException ex) {
             log.error("Invalid JWT token");

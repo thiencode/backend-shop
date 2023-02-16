@@ -25,5 +25,5 @@ public interface IGetInfoPageWithFilterController<I, T extends IBaseData<I>, F e
             @ParameterObject @Valid F filter,
             @RequestParam(defaultValue = "0") Integer number,
             @RequestParam(defaultValue = "20") Integer size
-    );
+                                                                             );
 }

@@ -23,9 +23,12 @@ public class AuditConfig implements AuditorAware<UUID> {
     @Override
     @NonNull
     public Optional<UUID> getCurrentAuditor() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Authentication authentication = SecurityContextHolder.getContext()
+                                                             .getAuthentication();
         if (authentication != null && authentication.getPrincipal() instanceof CustomUserDetail defaultUserDetail) {
-            return Optional.ofNullable(defaultUserDetail.getUser().getUsername() != null ? defaultUserDetail.getUser().getUserId() : null);
+            return Optional.ofNullable(defaultUserDetail.getUser()
+                                                        .getUsername() != null ? defaultUserDetail.getUser()
+                                                                                                  .getUserId() : null);
         }
         String userId = null;
         try {
@@ -34,8 +37,9 @@ public class AuditConfig implements AuditorAware<UUID> {
                 return Optional.of(UUID.fromString(userId));
             }
         } catch (Exception e) {
-            log.info("Error when get Auditor: UserId " + userId + " from MDC " + e.getClass().getSimpleName() + " " + e.getMessage());
-//            log.push(LogType.TRACING, "Error when get Auditor: UserId " + userId + " from MDC " + e.getClass().getSimpleName() + " " + e.getMessage());
+            log.info("Error when get Auditor: UserId " + userId + " from MDC " + e.getClass()
+                                                                                  .getSimpleName() + " " +
+                     e.getMessage());
         }
         return Optional.empty();
     }

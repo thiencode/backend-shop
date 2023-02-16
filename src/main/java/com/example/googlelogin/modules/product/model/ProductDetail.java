@@ -15,7 +15,9 @@ public class ProductDetail extends ProductInfo {
 
     private String brand;
 
-    private int quantity;
+    private String quantity;
+
+    private String unit;
 
     private String type;
 }

@@ -14,8 +14,8 @@ import java.util.Objects;
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @SuperBuilder(toBuilder = true)
-public abstract class BaseData<T extends Serializable> implements IBaseData<T>, Serializable {
-
+public abstract class BaseData<T extends Serializable> implements IBaseData<T>,
+                                                                  Serializable {
     @Valid
     protected T id;
 

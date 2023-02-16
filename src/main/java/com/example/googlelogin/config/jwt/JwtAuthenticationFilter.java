@@ -4,6 +4,7 @@ import com.example.googlelogin.modules.auth.service.CustomUserDetailsService;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNullApi;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,7 +18,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@Slf4j
 @NoArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Autowired
@@ -26,7 +26,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     JwtTokenProvider jwtTokenProvider;
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
+                                    FilterChain filterChain) throws ServletException, IOException {
         try {
             String jwt = getJwtFromRequest(request);
 
@@ -34,13 +35,14 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 String username = jwtTokenProvider.getUsernameFromJwt(jwt);
                 UserDetails userDetails = userService.loadUserByUsername(username);
                 if (userDetails != null) {
-                    UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+                    UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
+                            userDetails, null, userDetails.getAuthorities());
                     authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                    SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+                    SecurityContextHolder.getContext()
+                                         .setAuthentication(authenticationToken);
                 }
             }
         } catch (Exception e) {
-            log.error("failed on set user authentication", e);
             e.printStackTrace();
         }
         filterChain.doFilter(request, response);
