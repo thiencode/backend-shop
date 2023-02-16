@@ -1,13 +1,14 @@
 package com.example.googlelogin.modules.auth.controller;
 
-import com.example.googlelogin.model.factory.response.IResponseFactory;
 import com.example.googlelogin.model.factory.response.BaseResponse;
+import com.example.googlelogin.model.factory.response.IResponseFactory;
 import com.example.googlelogin.modules.auth.entity.UserEntity;
 import com.example.googlelogin.modules.auth.model.RandomStuff;
 import com.example.googlelogin.modules.auth.model.request.LoginRequest;
 import com.example.googlelogin.modules.auth.model.request.RegisterRequest;
 import com.example.googlelogin.modules.auth.model.response.LoginResponse;
 import com.example.googlelogin.modules.auth.service.UserService;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,7 +31,7 @@ public class AuthController {
         return iResponseFactory.success(userService.login(req));
     }
 
-    @GetMapping("/random")
+    @GetMapping(value = "/random", params = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<BaseResponse<RandomStuff>> random() {
         return iResponseFactory.success(new RandomStuff("JWT Hợp lệ mới có thể thấy được message này"));
     }

@@ -23,7 +23,8 @@ import java.util.UUID;
 @RequestMapping("/api/v1/product")
 @Tag(name = "product")
 public class ProductController extends BaseController<UUID, ProductInfo, ProductDetail> implements IProductController {
-    protected ProductController(IResponseFactory iResponseFactory, IDataFactory<UUID, ProductInfo, ProductDetail> iDataFactory) {
+    protected ProductController(IResponseFactory iResponseFactory,
+                                IDataFactory<UUID, ProductInfo, ProductDetail> iDataFactory) {
         super(iResponseFactory, iDataFactory);
     }
 
@@ -48,12 +49,15 @@ public class ProductController extends BaseController<UUID, ProductInfo, Product
     }
 
     @Override
-    public ResponseEntity<BaseResponse<BasePagingResponse<ProductInfo>>> getInfoPageWithFilter(IFilter filter, Integer number, Integer size) {
+    public ResponseEntity<BaseResponse<BasePagingResponse<ProductInfo>>> getInfoPageWithFilter(IFilter filter,
+                                                                                               Integer number,
+                                                                                               Integer size) {
         return null;
     }
 
     @Override
-    public ResponseEntity<BaseResponse<ProductDetail>> updateModel(FactoryUpdateRequest<UUID, ProductDetail> request) throws Exception {
+    public ResponseEntity<BaseResponse<ProductDetail>> updateModel(
+            FactoryUpdateRequest<UUID, ProductDetail> request) throws Exception {
         return super.factoryUpdateModel(request);
     }
 }

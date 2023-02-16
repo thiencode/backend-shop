@@ -46,19 +46,21 @@ public abstract class BaseController<I, T extends IBaseData<I>, U extends T> {
         return iResponseFactory.success(iDataFactory.updateModel(id, request));
     }
 
-    protected <F extends IFilter> ResponseEntity<BaseResponse<FactoryDeleteResponse>> factoryDeleteWithFilter(I id, F filter) throws Exception {
+    protected <F extends IFilter> ResponseEntity<BaseResponse<FactoryDeleteResponse>> factoryDeleteWithFilter(I id,
+                                                                                                              F filter) throws Exception {
         return iResponseFactory.success(
                 FactoryDeleteResponse.builder()
-                        .success(iDataFactory.deleteModel(id, filter))
-                        .build()
-        );
+                                     .success(iDataFactory.deleteModel(id, filter))
+                                     .build()
+                                       );
     }
 
     protected ResponseEntity<BaseResponse<U>> factoryGetDetailById(I id) throws Exception {
         return factoryGetDetailWithFilter(id, null);
     }
 
-    protected <F extends IFilter> ResponseEntity<BaseResponse<U>> factoryGetDetailWithFilter(I id, F filter) throws Exception {
+    protected <F extends IFilter> ResponseEntity<BaseResponse<U>> factoryGetDetailWithFilter(I id,
+                                                                                             F filter) throws Exception {
         return iResponseFactory.success(iDataFactory.getDetailModel(id, filter));
     }
 

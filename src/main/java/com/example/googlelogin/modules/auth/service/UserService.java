@@ -20,7 +20,8 @@ public class UserService {
     private final AuthenticationManager authenticationManager;
     private final JwtTokenProvider jwtTokenProvider;
 
-    public UserService(BCryptPasswordEncoder bCryptPasswordEncoder, UserRepository userRepository, AuthenticationManager authenticationManager, JwtTokenProvider jwtTokenProvider) {
+    public UserService(BCryptPasswordEncoder bCryptPasswordEncoder, UserRepository userRepository,
+                       AuthenticationManager authenticationManager, JwtTokenProvider jwtTokenProvider) {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
         this.userRepository = userRepository;
         this.authenticationManager = authenticationManager;
@@ -30,10 +31,10 @@ public class UserService {
 
     public UserEntity save(RegisterRequest user) {
         UserEntity newUser = UserEntity.builder()
-                .username(user.getUsername())
-                .password(bCryptPasswordEncoder.encode(user.getPassword()))
-                .email(user.getEmail())
-                .build();
+                                       .username(user.getUsername())
+                                       .password(bCryptPasswordEncoder.encode(user.getPassword()))
+                                       .email(user.getEmail())
+                                       .build();
         userRepository.save(newUser);
         return newUser;
     }
@@ -44,7 +45,7 @@ public class UserService {
                         request.getUsername(),
                         request.getPassword()
                 )
-        );
+                                                                          );
         String jwt = jwtTokenProvider.generateToken((CustomUserDetail) authentication.getPrincipal());
         return new LoginResponse(jwt);
     }

@@ -2,7 +2,6 @@ package com.example.googlelogin.config;
 
 import com.example.googlelogin.config.jwt.JwtAuthenticationFilter;
 import com.example.googlelogin.modules.auth.service.CustomUserDetailsService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,7 +20,6 @@ import static org.springframework.security.web.header.writers.ClearSiteDataHeade
 
 @Configuration
 @EnableWebSecurity
-@Slf4j
 public class SecurityConfiguration {
 
     private final CustomUserDetailsService userService;
@@ -61,8 +59,10 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .cors().disable()
-                .csrf().disable()
+                .cors()
+                .disable()
+                .csrf()
+                .disable()
                 .authorizeRequests()
                 .antMatchers(
                         "/api/v1/auth/register",
@@ -74,8 +74,10 @@ public class SecurityConfiguration {
                         "/swagger-ui/**",
                         "/swagger-ui.html",
                         "/null/swagger-resources/**"
-                ).permitAll()
-                .anyRequest().authenticated()
+                            )
+                .permitAll()
+                .anyRequest()
+                .authenticated()
                 .and()
                 /*.formLogin(form -> form
                         .loginPage(SERVER_UI + "/login")
@@ -103,7 +105,7 @@ public class SecurityConfiguration {
                 .logout(logout -> logout
                         .logoutUrl("/api/v1/auth/logout")
                         .addLogoutHandler(new SecurityContextLogoutHandler())
-                )
+                       )
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);

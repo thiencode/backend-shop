@@ -15,7 +15,8 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class ProductFactory extends BasePersistDataFactory<UUID, ProductInfo, ProductDetail, UUID, ProductEntity> implements IProductFactory {
+public class ProductFactory extends BasePersistDataFactory<UUID, ProductInfo, ProductDetail, UUID, ProductEntity>
+        implements IProductFactory {
     protected ProductFactory(PagingAndSortingRepository<ProductEntity, UUID> repository) {
         super(repository);
     }
@@ -23,17 +24,17 @@ public class ProductFactory extends BasePersistDataFactory<UUID, ProductInfo, Pr
     @Override
     public ProductEntity createConvertToEntity(ProductDetail detail) {
         return ProductEntity.builder()
-                .name(detail.getName())
-                .productCode(detail.getProductCode())
-                .image(detail.getImage())
-                .quantity(detail.getQuantity())
-                .brand(detail.getBrand())
-                .status(detail.getStatus())
-                .description(detail.getDescription())
-                .price(detail.getPrice())
-                .type(detail.getType())
-                .unit(detail.getUnit())
-                .build();
+                            .name(detail.getName())
+                            .productCode(detail.getProductCode())
+                            .image(detail.getImage())
+                            .quantity(detail.getQuantity())
+                            .brand(detail.getBrand())
+                            .status(detail.getStatus())
+                            .description(detail.getDescription())
+                            .price(detail.getPrice())
+                            .type(detail.getType())
+                            .unit(detail.getUnit())
+                            .build();
     }
 
     @Override
@@ -53,30 +54,30 @@ public class ProductFactory extends BasePersistDataFactory<UUID, ProductInfo, Pr
     @Override
     public ProductDetail convertToDetail(ProductEntity entity) {
         return ProductDetail.builder()
-                .id(entity.getId())
-                .name(entity.getName())
-                .productCode(entity.getProductCode())
-                .image(entity.getImage())
-                .quantity(entity.getQuantity())
-                .brand(entity.getBrand())
-                .status(entity.getStatus())
-                .description(entity.getDescription())
-                .price(entity.getPrice())
-                .type(entity.getType())
-                .unit(entity.getUnit())
-                .build();
+                            .id(entity.getId())
+                            .name(entity.getName())
+                            .productCode(entity.getProductCode())
+                            .image(entity.getImage())
+                            .quantity(entity.getQuantity())
+                            .brand(entity.getBrand())
+                            .status(entity.getStatus())
+                            .description(entity.getDescription())
+                            .price(entity.getPrice())
+                            .type(entity.getType())
+                            .unit(entity.getUnit())
+                            .build();
     }
 
     @Override
     public ProductInfo convertToInfo(ProductEntity entity) {
         return ProductInfo.builder()
-                .id(entity.getId())
-                .name(entity.getName())
-                .productCode(entity.getProductCode())
-                .image(entity.getImage())
-                .price(entity.getPrice())
-                .status(entity.getStatus())
-                .build();
+                          .id(entity.getId())
+                          .name(entity.getName())
+                          .productCode(entity.getProductCode())
+                          .image(entity.getImage())
+                          .price(entity.getPrice())
+                          .status(entity.getStatus())
+                          .build();
     }
 
     @Override
@@ -110,7 +111,8 @@ public class ProductFactory extends BasePersistDataFactory<UUID, ProductInfo, Pr
     }
 
     @Override
-    protected <F extends IFilter> BasePagingResponse<ProductInfo> didGetInfoPage(F filter, Integer number, Integer size) {
+    protected <F extends IFilter> BasePagingResponse<ProductInfo> didGetInfoPage(F filter, Integer number,
+                                                                                 Integer size) {
         return super.didGetInfoPage(filter, number, size);
     }
 

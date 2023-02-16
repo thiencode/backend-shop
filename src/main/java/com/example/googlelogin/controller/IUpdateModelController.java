@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.validation.Valid;
 
+
 /**
  * IUpdateModelController
  *
@@ -18,5 +19,6 @@ import javax.validation.Valid;
  */
 public interface IUpdateModelController<I, U extends IBaseData<I>> {
     @PutMapping("/update")
-    ResponseEntity<BaseResponse<U>> updateModel(@RequestBody @Valid FactoryUpdateRequest<I, U> request) throws Exception;
+    ResponseEntity<BaseResponse<U>> updateModel(
+            @RequestBody @Valid FactoryUpdateRequest<I, U> request) throws Exception;
 }

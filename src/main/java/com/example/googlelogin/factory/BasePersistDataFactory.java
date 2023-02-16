@@ -71,11 +71,11 @@ public abstract class BasePersistDataFactory<I, T extends IBaseData<I>, D extend
     protected <F extends IFilter> BasePagingResponse<T> didGetInfoPage(F filter, Integer number, Integer size) {
         Page<E> pageEntity = pageQuery(filter, number, size);
         return BasePagingResponse.<T>builder()
-                .contents(convertList(pageEntity.getContent()))
-                .pageNumber(pageEntity.getNumber())
-                .pageSize(pageEntity.getSize())
-                .totalElement(pageEntity.getTotalElements())
-                .build();
+                                 .contents(convertList(pageEntity.getContent()))
+                                 .pageNumber(pageEntity.getNumber())
+                                 .pageSize(pageEntity.getSize())
+                                 .totalElement(pageEntity.getTotalElements())
+                                 .build();
     }
 
     @Override

@@ -25,12 +25,12 @@ public class DefaultResponseFactory implements IResponseFactory {
     @Override
     public <I> ResponseEntity<BaseResponse<I>> success(I data) {
         BaseResponse<I> response = BaseResponse.<I>builder()
-                .data(data)
-                .success(true)
-                .build();
+                                               .data(data)
+                                               .success(true)
+                                               .build();
         return ResponseEntity.status(HttpStatus.OK)
-                .contentType(MediaType.APPLICATION_JSON)
-                .body(response);
+                             .contentType(MediaType.APPLICATION_JSON)
+                             .body(response);
     }
 
     @Override
@@ -49,16 +49,18 @@ public class DefaultResponseFactory implements IResponseFactory {
     }
 
     protected String getCode(IErrorCode iErrorCode) {
-        return servicePrefix != null ? servicePrefix.concat(String.format(CommonConstant.SIX_DIGITS_FORMAT, iErrorCode.getCode()).toUpperCase()) : String.format(CommonConstant.SIX_DIGITS_FORMAT, iErrorCode.getCode());
+        return servicePrefix != null ? servicePrefix.concat(
+                String.format(CommonConstant.SIX_DIGITS_FORMAT, iErrorCode.getCode())
+                      .toUpperCase()) : String.format(CommonConstant.SIX_DIGITS_FORMAT, iErrorCode.getCode());
     }
 
     protected ErrorResponse getErrorResponse(IErrorCode iErrorCode, Map<String, String> fieldError) {
         return ErrorResponse.builder()
-                .code(getCode(iErrorCode))
-                .message(iErrorCode.name())
-                .success(false)
-                .data(fieldError)
-                .build();
+                            .code(getCode(iErrorCode))
+                            .message(iErrorCode.name())
+                            .success(false)
+                            .data(fieldError)
+                            .build();
     }
 
     protected ErrorResponse getErrorResponse(IErrorCode iErrorCode) {

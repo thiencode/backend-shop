@@ -1,5 +1,7 @@
 package com.example.googlelogin.model.factory;
 
+//import jakarta.validation.Valid;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,7 +16,8 @@ import java.util.Objects;
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @SuperBuilder(toBuilder = true)
-public abstract class BaseData<T extends Serializable> implements IBaseData<T>, Serializable {
+public abstract class BaseData<T extends Serializable> implements IBaseData<T>,
+                                                                  Serializable {
 
     @Valid
     protected T id;

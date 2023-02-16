@@ -2,19 +2,19 @@ server:
   port: 8080
 
 spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    open-in-view: false
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: root
+    driverClassName: org.postgresql.Driver
     password: password
+    username: root
+    url: jdbc:postgresql://localhost:5432/postgres
     hikari:
       connection-timeout: 30000
       idle-timeout: 600000
       max-lifetime: 1800000
-  jpa:
-    show-sql: true
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-    hibernate:
-      ddl-auto: update
-    open-in-view: false
+  flyway:
+    baseline-on-migrate: true
